@@ -10,4 +10,7 @@ setup(
 	author_email = 'zyp@jvnv.net',
 	url = 'http://redmine.jvnv.net/projects/pyanidb/',
 	packages = ['pyanidb'],
-	scripts = ['anidb'])
+	scripts = ['anidb'],
+	extras_require={
+        "xattr":  ["xattr>=9.7.0"],
+    })
