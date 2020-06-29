@@ -80,7 +80,7 @@ class File:
 		cache = dict([(n[13:], xattr.get(self.name, n)) for n in xattr.list(self.name) if n.decode().startswith('user.pyanidb.')])
 		if 'mtime' not in cache or str(int(self.mtime)) != cache.pop('mtime'):
 			return
-		for n, v in cache.items():
+		for n, v in list(cache.items()):
 			setattr(self, n, v)
 		self.cached = True
 	
@@ -128,4 +128,4 @@ def hash_files(files, cache = False, algorithms = ('ed2k',), num_threads = 1):
 			yield hashlist.pop(0)
 		except IndexError:
 			time.sleep(0.1)
-	raise StopIteration
+	return

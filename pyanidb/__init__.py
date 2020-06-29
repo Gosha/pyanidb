@@ -79,7 +79,7 @@ class AniDB:
 		if not args:
 			args = {}
 		while 1:
-			data = '{0} {1}\n'.format(cmd, '&'.join(['{0}={1}'.format(*a) for a in args.items()]))
+			data = '{0} {1}\n'.format(cmd, '&'.join(['{0}={1}'.format(*a) for a in list(args.items())]))
 			t = time.time()
 			if t < self.lasttime + 2:
 				time.sleep(self.lasttime + 2 - t)
